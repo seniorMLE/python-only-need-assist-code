@@ -1,3 +1,11 @@
+# generate random integr and select number randomly in tensorflow
+sample = tf.convert_to_tensor([[1,2,3,4]])
+inte = tf.random.uniform(shape=[1],minval=0, maxval=3, dtype=tf.int32)
+print("selection number",  inte)
+selection = tf.gather(sample, inte, axis=1) 
+print("selected :  ", selection)
+
+
 # generate ranndom duplicate integer
 aa = np.random.permutation(100)[:95]
 aa.sort()
@@ -145,6 +153,12 @@ label.hist()
 # calcuate the correlation
 y_test = np.expand_dims(y_test, axis=1)    
 coeff = np.corrcoef(predict_y, y_test)
+
+# tensor expand
+image = tf.zeros([10,10,3])
+tf.expand_dims(image, axis=0).shape.as_list()
+# output is like [1,10,10,3]
+
 
 
 
